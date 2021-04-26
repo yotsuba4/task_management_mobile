@@ -7,4 +7,5 @@ class AppColor {
   static Color grey3 = Color(0xff606C83);
   static Color grey2 = Color(0xff72809D);
   static Color grey1 = Color(0xffC0C7D4);
+  static Color grey5 = Color(0xffF7F9FB);
 }
