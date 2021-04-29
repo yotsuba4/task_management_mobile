@@ -7,14 +7,19 @@ class BuildTaskDetailHead extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: ScreenUtil().setHeight(82.5),
       margin: EdgeInsets.only(bottom: ScreenUtil().setHeight(17.1 - 8.4)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(
+            height: 5,
+          ),
           Container(
             padding: EdgeInsets.only(
+              right: 29,
               left: 20,
-              top: 5,
+              //   top: 5,
             ),
             child: Text(
               'Interface Design',
@@ -27,37 +32,47 @@ class BuildTaskDetailHead extends StatelessWidget {
           SizedBox(
             height: 5,
           ),
-          Row(
-            children: [
-              Image.asset(icTaskDetailClock),
-              Container(
-                padding: EdgeInsets.only(
-                  left: 20,
-                  bottom: 16.5,
+          Container(
+            padding: EdgeInsets.only(
+              right: 29,
+              left: 20,
+              //   top: 5,
+            ),
+            child: Row(
+              children: [
+                Image.asset(icTaskDetailClock),
+                SizedBox(
+                  width: 10,
                 ),
-                child: Text(
-                  'Are you ready?',
+                Text(
+                  "09 : 00  AM",
                   style: TextStyle(
-                      fontWeight: FontWeight.w400,
                       fontSize: ScreenUtil().setSp(12),
-                      color: AppColor.grey3),
+                      color: AppColor.grey2,
+                      fontWeight: FontWeight.w400),
                 ),
-              ),
-              Image.asset(icTaskDetailCalendar),
-              Container(
-                padding: EdgeInsets.only(
-                  left: 20,
-                  bottom: 16.5,
+                Expanded(child: SizedBox()),
+                Image.asset(
+                  icTaskDetailCalendar,
+                  height: 14,
                 ),
-                child: Text(
-                  'Are you ready?',
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  "August 24, 2020",
                   style: TextStyle(
-                      fontWeight: FontWeight.w400,
                       fontSize: ScreenUtil().setSp(12),
-                      color: AppColor.grey3),
+                      color: AppColor.grey2,
+                      fontWeight: FontWeight.w400),
                 ),
-              ),
-            ],
+              ],
+            ),
+          ),
+          Expanded(
+            child: SizedBox(
+              height: 10,
+            ),
           ),
           Divider(
             thickness: 1,

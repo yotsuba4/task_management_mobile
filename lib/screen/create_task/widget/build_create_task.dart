@@ -97,8 +97,10 @@ class BuildCreateTask extends StatelessWidget {
             child: Row(
               children: [
                 DateTimePick(color: AppColor.primaryColor),
-                SizedBox(
-                  width: ScreenUtil().setWidth(12),
+                Expanded(
+                  child: SizedBox(
+                    width: ScreenUtil().setWidth(12),
+                  ),
                 ),
                 DateTimePick(
                   color: Color(0xffF0F4F8),

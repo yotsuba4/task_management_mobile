@@ -18,6 +18,15 @@ final String icCreatetaskCalendar = _getImagePath('ic_createtask_calendar.png');
 
 final String icTaskDetailClock = _getImagePath('ic_taskdetail_clock.png');
 final String icTaskDetailCalendar = _getImagePath('ic_taskdetail_calendar.png');
+final String icTaskDetailFile = _getImagePath('ic_taskdetail_file.png');
+
+final String imgTaskAvatar4 =
+    _getImagePath('ic_taskdetail_avatar_kera_sagu.png');
+
+final String imgUploadfileLight = _getImagePath('img_uploadfile_light.png');
+final String imgUploadfileOrange = _getImagePath('img_uploadfile_orange.png');
+final String imgUploadfileKeyboard =
+    _getImagePath('img_uploadfile_keyboard.png');
 String _getImagePath(String fileName) {
   return root + fileName;
 }
