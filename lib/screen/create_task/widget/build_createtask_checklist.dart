@@ -17,10 +17,7 @@ class _BuildTaskChecklistRowState extends State<BuildCreateTaskCheckList> {
     return Container(
       margin: EdgeInsets.only(
         bottom: ScreenUtil().setHeight(8.4),
-        left: ScreenUtil().setWidth(19),
-        right: ScreenUtil().setWidth(19),
       ),
-      width: ScreenUtil().setWidth(296),
       height: ScreenUtil().setHeight(42),
       decoration: BoxDecoration(
         border: Border.all(

@@ -10,7 +10,10 @@ class CreateTask extends StatelessWidget {
       appTitle: 'Create Task',
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [BuildCreateTaskHead(), BuildCreateTask()],
+        children: [
+          BuildCreateTaskHead(),
+          BuildCreateTask(),
+        ],
       ),
     );
   }

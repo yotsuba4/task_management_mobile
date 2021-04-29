@@ -16,6 +16,8 @@ final String imgTaskAvatar3 = _getImagePath('img_task_avatar_3.png');
 
 final String icCreatetaskCalendar = _getImagePath('ic_createtask_calendar.png');
 
+final String icTaskDetailClock = _getImagePath('ic_taskdetail_clock.png');
+final String icTaskDetailCalendar = _getImagePath('ic_taskdetail_calendar.png');
 String _getImagePath(String fileName) {
   return root + fileName;
 }

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:task_management_mobile/constants/colors.dart';
-import 'package:task_management_mobile/constants/asset_path.dart';
 import 'package:task_management_mobile/screen/create_task/widget/build_createtask_checklist.dart';
+import 'package:task_management_mobile/screen/create_task/widget/datime_picker.dart';
 import 'package:task_management_mobile/screen/task_detail/task_detail.dart';
 import 'package:task_management_mobile/widget/normal_button.dart';
 
@@ -13,6 +13,7 @@ class BuildCreateTask extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.only(left: 20, right: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -26,10 +27,14 @@ class BuildCreateTask extends StatelessWidget {
                   fontWeight: FontWeight.w400),
             ),
           ),
+          SizedBox(
+            height: 6,
+          ),
           Container(
             height: 40,
             child: TextField(
               decoration: InputDecoration(
+                labelText: "UI/UX Design",
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(6),
                   borderSide: BorderSide(
@@ -39,6 +44,9 @@ class BuildCreateTask extends StatelessWidget {
                 ),
               ),
             ),
+          ),
+          SizedBox(
+            height: 15,
           ),
           Container(
             margin: EdgeInsets.only(bottom: 6),
@@ -50,10 +58,14 @@ class BuildCreateTask extends StatelessWidget {
                   fontWeight: FontWeight.w400),
             ),
           ),
+          SizedBox(
+            height: 6,
+          ),
           Container(
             height: 40,
             child: TextField(
               decoration: InputDecoration(
+                labelText: "Brand Management",
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(6),
                   borderSide: BorderSide(
@@ -63,6 +75,9 @@ class BuildCreateTask extends StatelessWidget {
                 ),
               ),
             ),
+          ),
+          SizedBox(
+            height: 15,
           ),
           Container(
             margin: EdgeInsets.only(bottom: 6),
@@ -74,44 +89,25 @@ class BuildCreateTask extends StatelessWidget {
                   fontWeight: FontWeight.w400),
             ),
           ),
-          Row(
-            children: [
-              Container(
-                height: ScreenUtil().setHeight(40),
-                width: ScreenUtil().setWidth(142),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6),
-                  border: Border.all(color: Color(0xffD7E1EA)),
+          SizedBox(
+            height: 6,
+          ),
+          Container(
+            height: 40,
+            child: Row(
+              children: [
+                DateTimePick(color: AppColor.primaryColor),
+                SizedBox(
+                  width: ScreenUtil().setWidth(12),
                 ),
-                child: Row(
-                  children: [
-                    Image.asset(icCreatetaskCalendar),
-                    Text(
-                      '12/20/2020',
-                      style: TextStyle(color: AppColor.grey2),
-                    )
-                  ],
-                ),
-              ),
-              Container(
-                height: ScreenUtil().setHeight(40),
-                width: ScreenUtil().setWidth(142),
-                decoration: BoxDecoration(
+                DateTimePick(
                   color: Color(0xffF0F4F8),
-                  borderRadius: BorderRadius.circular(6),
-                  border: Border.all(color: Color(0xffD7E1EA)),
-                ),
-                child: Row(
-                  children: [
-                    Image.asset(icCreatetaskCalendar),
-                    Text(
-                      '12/22/2020',
-                      style: TextStyle(color: AppColor.grey2),
-                    )
-                  ],
-                ),
-              ),
-            ],
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 15,
           ),
           Container(
             margin: EdgeInsets.only(bottom: 6),
@@ -127,34 +123,42 @@ class BuildCreateTask extends StatelessWidget {
           BuildCreateTaskCheckList(task: 'Tipography Study'),
           BuildCreateTaskCheckList(task: 'Purchase Mockup'),
           BuildCreateTaskCheckList(task: 'Moodboard Research for Color'),
-          Container(
-            margin: EdgeInsets.only(bottom: 6),
-            child: Text(
-              'Descriptions',
-              style: TextStyle(
-                  color: AppColor.grey3,
-                  fontSize: ScreenUtil().setSp(12),
-                  fontWeight: FontWeight.w400),
+          Padding(
+            padding: const EdgeInsets.only(top: 21, bottom: 14),
+            child: Align(
+              child: Text(
+                "Descriptions",
+                style: TextStyle(
+                    fontSize: ScreenUtil().setSp(12),
+                    color: AppColor.grey3,
+                    fontWeight: FontWeight.w400),
+              ),
+              alignment: Alignment.centerLeft,
             ),
           ),
           Container(
-            height: ScreenUtil().setHeight(102),
+            padding: EdgeInsets.all(18),
+            height: 102,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(6),
-                color: Color(0xffF7F9FB)),
+              color: Color(0xffF7F9FB),
+              borderRadius: BorderRadius.circular(6),
+            ),
             child: Text(
-              'Please, the logo must represent the brand character, positioning, and the client USP and ESP.',
+              "Please, the logo must represent the brand character, positioning, and the client USP and ESP.",
               style: TextStyle(
-                  color: AppColor.grey2,
                   fontSize: ScreenUtil().setSp(14),
+                  color: AppColor.grey2,
                   fontWeight: FontWeight.w400),
             ),
           ),
-          NormalButton(
-              onPressed: () {
-                Get.to(TaskDetail());
-              },
-              title: 'Create New Task')
+          Padding(
+            padding: const EdgeInsets.only(top: 17, bottom: 34),
+            child: NormalButton(
+                onPressed: () {
+                  Get.to(TaskDetail());
+                },
+                title: 'Create New Task'),
+          )
         ],
       ),
     );
