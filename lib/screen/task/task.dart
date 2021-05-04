@@ -40,7 +40,7 @@ class _TaskPageState extends State<TaskPage> {
                 title: 'Create New Task'),
           ),
           SizedBox(
-            height: 50,
+            height: 35,
           )
         ],
       ),
