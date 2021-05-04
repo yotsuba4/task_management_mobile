@@ -43,11 +43,15 @@ class UploadFile extends StatelessWidget {
               ),
             ),
           ),
+          SizedBox(
+            height: 7,
+          ),
           Divider(
             thickness: 1,
+            height: 0,
           ),
           Container(
-            height: ScreenUtil().setHeight(400),
+            height: ScreenUtil().setHeight(390),
             child: GridView.count(
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
