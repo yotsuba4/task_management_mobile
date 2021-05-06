@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:task_management_mobile/constants/colors.dart';
+import 'package:task_management_mobile/controller/todo_controller.dart';
 import 'package:task_management_mobile/screen/create_task/widget/build_createtask_checklist.dart';
 import 'package:task_management_mobile/screen/create_task/widget/datime_picker.dart';
 import 'package:task_management_mobile/screen/task_detail/task_detail.dart';
@@ -12,6 +13,7 @@ import 'package:task_management_mobile/widget/normal_button.dart';
 class BuildCreateTask extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    TodoController todoController = Get.put(TodoController());
     return Container(
       padding: EdgeInsets.only(left: 20, right: 20),
       child: Column(
@@ -33,6 +35,7 @@ class BuildCreateTask extends StatelessWidget {
           Container(
             height: 40,
             child: TextField(
+              controller: TodoController.instance.todonameInput,
               decoration: InputDecoration(
                 labelText: "UI/UX Design",
                 border: OutlineInputBorder(
@@ -157,6 +160,8 @@ class BuildCreateTask extends StatelessWidget {
             padding: const EdgeInsets.only(top: 17, bottom: 34),
             child: NormalButton(
                 onPressed: () {
+                  todoController.insertTodo();
+                  todoController.getTodos();
                   Get.to(TaskDetail());
                 },
                 title: 'Create New Task'),
