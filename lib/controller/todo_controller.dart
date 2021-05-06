@@ -11,7 +11,6 @@ class TodoController extends GetxController {
     final todos = await DBProvider.dataBase.getAllTodos();
 
     listTodos.addAll(todos);
-    // print(listTodos.length);
   }
 
   void insertTodo() {
