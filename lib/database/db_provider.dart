@@ -44,4 +44,16 @@ class DBProvider {
     return await db
         .update('todos', todo.toMap(), where: 'id = ?', whereArgs: [todo.id]);
   }
+
+  Future<ToDo> getTodo(int id) async {
+    final db = await database;
+    List<Map> maps = await db.query('todos',
+        columns: ['id', 'name', 'descriptions', 'photo'],
+        where: 'id = ?',
+        whereArgs: [id]);
+    if (maps.length > 0) {
+      return ToDo.fromMap(maps.first);
+    }
+    return null;
+  }
 }

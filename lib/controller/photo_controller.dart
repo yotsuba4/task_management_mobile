@@ -1,5 +1,5 @@
+import 'dart:io';
 import 'dart:typed_data';
-
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:task_management_mobile/model/photo.dart';
@@ -7,8 +7,9 @@ import 'package:task_management_mobile/save_image/db_helper.dart';
 import 'package:task_management_mobile/save_image/utility.dart';
 
 class Photocontroller extends GetxController {
-  // Future<File> imageFile;
-  // Image image;
+  RxList listImage = [].obs;
+  var imagePicker = ImagePicker();
+
   DBHelper dbHelper = DBHelper();
   RxList<Photo> images = <Photo>[].obs;
   refreshImages() {
@@ -30,5 +31,11 @@ class Photocontroller extends GetxController {
       dbHelper.save(photo);
       refreshImages();
     });
+  }
+
+  void getImage() async {
+    var image = await imagePicker.getImage(source: ImageSource.camera);
+    File imageFile = File(image.path);
+    listImage.add(imageFile);
   }
 }

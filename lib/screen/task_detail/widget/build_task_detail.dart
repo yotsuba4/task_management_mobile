@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:task_management_mobile/constants/asset_path.dart';
 import 'package:task_management_mobile/constants/colors.dart';
 import 'package:task_management_mobile/data/task_check_lisk.dart';
-import 'package:task_management_mobile/screen/create_task/create_task.dart';
 import 'package:task_management_mobile/screen/create_task/widget/build_createtask_checklist.dart';
 import 'package:task_management_mobile/screen/task_detail/widget/bottom_sheet.dart';
 import 'package:task_management_mobile/screen/upload_file/upload_file.dart';
@@ -113,9 +112,7 @@ class BuildTaskDetail extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 20, right: 20, top: 12),
           child: GestureDetector(
-            onTap: () {
-              Get.to(UploadFile());
-            },
+            onTap: () {},
             child: DottedBorder(
               color: Color(0xff253F50).withOpacity(0.42),
               borderType: BorderType.RRect,
@@ -233,7 +230,7 @@ class BuildTaskDetail extends StatelessWidget {
           margin: EdgeInsets.only(bottom: ScreenUtil().setHeight(28)),
           child: NormalButton(
               onPressed: () {
-                Get.offAll(CreateTask());
+                Get.to(UploadFile());
               },
               title: 'Add New Task'),
         )

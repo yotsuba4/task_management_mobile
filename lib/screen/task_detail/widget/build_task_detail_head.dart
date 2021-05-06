@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:task_management_mobile/constants/asset_path.dart';
 import 'package:task_management_mobile/constants/colors.dart';
 import 'package:task_management_mobile/controller/todo_controller.dart';
-import 'package:task_management_mobile/model/todo.dart';
 
 class BuildTaskDetailHead extends StatelessWidget {
   @override
@@ -24,17 +22,14 @@ class BuildTaskDetailHead extends StatelessWidget {
               left: 20,
               //   top: 5,
             ),
-            child: Obx(() {
-              var index = TodoController.instance.listTodos.length - 1;
-              ToDo todo = TodoController.instance.listTodos[index];
-              return Text(
-                todo.name,
-                style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: ScreenUtil().setSp(20),
-                    color: AppColor.secondColor),
-              );
-            }),
+            child: Text(
+              TodoController.instance
+                  .listTodos[TodoController.instance.listTodos.length - 1].name,
+              style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: ScreenUtil().setSp(20),
+                  color: AppColor.secondColor),
+            ),
           ),
           SizedBox(
             height: 5,

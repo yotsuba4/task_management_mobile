@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:task_management_mobile/constants/asset_path.dart';
 import 'package:task_management_mobile/constants/colors.dart';
 import 'package:task_management_mobile/controller/photo_controller.dart';
-import 'package:task_management_mobile/save_image/utility.dart';
 import 'package:task_management_mobile/screen/upload_file/upload_dialog.dart';
 import 'package:task_management_mobile/widget/base_widget.dart';
 import 'package:task_management_mobile/widget/normal_button.dart';
@@ -55,9 +54,9 @@ class UploadFile extends StatelessWidget {
             height: 0,
           ),
           Container(
-            height: ScreenUtil().setHeight(390),
+            // height: ScreenUtil().setHeight(390),
             child: Obx(() {
-              if (photocontroller.images.isNotEmpty)
+              if (photocontroller.listImage.isNotEmpty)
                 return gridview();
               else {
                 return defaultgrid();
@@ -162,7 +161,7 @@ class UploadFile extends StatelessWidget {
             padding: const EdgeInsets.only(left: 20, top: 10, right: 20),
             child: GestureDetector(
               onTap: () {
-                photocontroller.pickImageFromGallery();
+                photocontroller.getImage();
               },
               child: DottedBorder(
                 color: Color(0xff253F50).withOpacity(0.42),
@@ -270,14 +269,24 @@ Widget defaultgrid() {
 Widget gridview() {
   Photocontroller photocontroller = Get.find();
   return Padding(
-    padding: EdgeInsets.all(5.0),
+    padding: EdgeInsets.only(top: 19.5, left: 23, right: 24, bottom: 17),
     child: GridView.count(
+      physics: NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
       crossAxisCount: 2,
       childAspectRatio: 1.0,
-      mainAxisSpacing: 4.0,
-      crossAxisSpacing: 4.0,
-      children: photocontroller.images.map((photo) {
-        return Utility.imageFromBase64String(photo.photoName);
+      mainAxisSpacing: 17,
+      crossAxisSpacing: 14,
+      children: photocontroller.listImage.map((image) {
+        return ClipRRect(
+          borderRadius: BorderRadius.circular(7),
+          child: Image.file(
+            image,
+            width: ScreenUtil().setWidth(139),
+            height: ScreenUtil().setHeight(124),
+            fit: BoxFit.fill,
+          ),
+        );
       }).toList(),
     ),
   );
