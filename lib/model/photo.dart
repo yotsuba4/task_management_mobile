@@ -1,19 +1,18 @@
 class Photo {
-  int id;
-  String photoName;
+  String id;
+  String url;
+  String todoID;
 
-  Photo(this.id, this.photoName);
+  Photo(this.id, this.url, this.todoID);
 
   Map<String, dynamic> toMap() {
-    var map = <String, dynamic>{
-      'id': id,
-      'photoName': photoName,
-    };
+    var map = <String, dynamic>{'id': id, 'url': url, 'todoID': todoID};
     return map;
   }
 
   Photo.fromMap(Map<String, dynamic> map) {
     id = map['id'];
-    photoName = map['photoName'];
+    url = map['url'];
+    todoID = map['todoID'];
   }
 }

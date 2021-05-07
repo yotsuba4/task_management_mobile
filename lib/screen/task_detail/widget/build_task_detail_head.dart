@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task_management_mobile/constants/asset_path.dart';
 import 'package:task_management_mobile/constants/colors.dart';
-import 'package:task_management_mobile/controller/todo_controller.dart';
 
 class BuildTaskDetailHead extends StatelessWidget {
   @override
@@ -23,8 +22,7 @@ class BuildTaskDetailHead extends StatelessWidget {
               //   top: 5,
             ),
             child: Text(
-              TodoController.instance
-                  .listTodos[TodoController.instance.listTodos.length - 1].name,
+              'User Interface',
               style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: ScreenUtil().setSp(20),

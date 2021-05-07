@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:task_management_mobile/constants/asset_path.dart';
 import 'package:task_management_mobile/constants/colors.dart';
+import 'package:task_management_mobile/controller/todo_controller.dart';
 import 'package:task_management_mobile/screen/task/task.dart';
 import 'package:task_management_mobile/widget/app_bar_widget.dart';
 import 'package:task_management_mobile/widget/normal_button.dart';
@@ -10,6 +11,7 @@ import 'package:task_management_mobile/widget/normal_button.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    TodoController todoController = Get.put(TodoController());
     ScreenUtil.init(
       BoxConstraints(
           maxWidth: MediaQuery.of(context).size.width,
@@ -61,6 +63,7 @@ class HomePage extends StatelessWidget {
             ),
             NormalButton(
                 onPressed: () {
+                  todoController.getTodos();
                   Get.to(TaskPage());
                 },
                 title: 'Create New Task'),

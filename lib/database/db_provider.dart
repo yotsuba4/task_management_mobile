@@ -1,5 +1,6 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
+import 'package:task_management_mobile/model/photo.dart';
 import 'package:task_management_mobile/model/todo.dart';
 
 class DBProvider {
@@ -20,11 +21,36 @@ class DBProvider {
       join(await getDatabasesPath(), 'todo_app_db.db'),
       onCreate: (db, version) async {
         await db.execute('''
-      CREATE TABLE todos (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, descriptions TEXT, photo TEXT)
+      CREATE TABLE todos (name TEXT PRIMARY KEY, descriptions TEXT)
        ''');
       },
       version: 1,
     );
+  }
+
+  createPhotoTable() async {
+    final db = await database;
+    await db.execute('''
+      CREATE TABLE photos (id TEXT, url TEXT, todoID TEXT)
+    ''');
+  }
+
+  Future<int> addNewPhoto(Photo photo) async {
+    final db = await database;
+    return await db.insert('todos', photo.toMap(),
+        conflictAlgorithm: ConflictAlgorithm.replace);
+  }
+
+  Future<ToDo> getPhotoByTodoID(String todoID) async {
+    final db = await database;
+    List<Map> maps = await db.query('todos',
+        columns: ['id', 'url', 'todoID'],
+        where: 'todoID = ?',
+        whereArgs: [todoID]);
+    if (maps.length > 0) {
+      return ToDo.fromMap(maps.first);
+    }
+    return null;
   }
 
   Future<int> addNewToDo(ToDo toDo) async {
@@ -42,15 +68,15 @@ class DBProvider {
   Future<int> update(ToDo todo) async {
     final db = await database;
     return await db
-        .update('todos', todo.toMap(), where: 'id = ?', whereArgs: [todo.id]);
+        .update('todos', todo.toMap(), where: 'name = ?', whereArgs: [todo.name]);
   }
 
-  Future<ToDo> getTodo(int id) async {
+  Future<ToDo> getTodo(String name) async {
     final db = await database;
     List<Map> maps = await db.query('todos',
-        columns: ['id', 'name', 'descriptions', 'photo'],
-        where: 'id = ?',
-        whereArgs: [id]);
+        columns: ['name', 'descriptions'],
+        where: 'name = ?',
+        whereArgs: [name]);
     if (maps.length > 0) {
       return ToDo.fromMap(maps.first);
     }

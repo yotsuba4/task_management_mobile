@@ -21,6 +21,7 @@ Tag strategist = Tag.watermark(
     tagName: 'Strategist',
     bColor: Color(0xffF8E1E4),
     tColor: Color(0xffFF0000));
+    
 var tasks = [
   Task.taskChecklist(
     taskName: 'UX Research',

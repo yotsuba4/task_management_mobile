@@ -5,7 +5,8 @@ import 'package:task_management_mobile/model/task.dart';
 
 class BuildTaskChecklistRow extends StatefulWidget {
   final Task task;
-  BuildTaskChecklistRow({@required this.task});
+  final String taskName;
+  BuildTaskChecklistRow({@required this.task, @required this.taskName});
   static bool isChecked = false;
 
   @override
@@ -50,7 +51,7 @@ class _BuildTaskChecklistRowState extends State<BuildTaskChecklistRow> {
             ),
           ),
           Text(
-            widget.task.taskName,
+            widget.taskName,
             style: TextStyle(
               fontSize: ScreenUtil().setSp(14),
               fontWeight: FontWeight.w400,

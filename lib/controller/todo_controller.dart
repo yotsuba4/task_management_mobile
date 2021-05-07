@@ -10,18 +10,18 @@ class TodoController extends GetxController {
   TextEditingController todonameInput = TextEditingController();
   void getTodos() async {
     final todos = await DBProvider.dataBase.getAllTodos();
-    print(listTodos.length);
-    listTodos.addAll(todos);
+    listTodos.assignAll(todos);
+    update();
   }
 
   void insertTodo() {
     DBProvider.dataBase.addNewToDo(
-      ToDo(1, todonameInput.text, "Day la mo ta", 'url'),
+      ToDo(todonameInput.text, "Day la mo ta"),
     );
   }
 
   void getTodoById() async {
-    todo(await DBProvider.dataBase.getTodo(1));
+    todo(await DBProvider.dataBase.getTodo('td1'));
     print(todo.value.name);
   }
 }
