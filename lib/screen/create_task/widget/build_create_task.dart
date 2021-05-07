@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:task_management_mobile/constants/colors.dart';
 import 'package:task_management_mobile/controller/todo_controller.dart';
 import 'package:task_management_mobile/screen/create_task/widget/build_createtask_checklist.dart';
-import 'package:task_management_mobile/screen/create_task/widget/datime_picker.dart';
+import 'package:task_management_mobile/screen/create_task/widget/datetime_picker_range.dart';
 import 'package:task_management_mobile/screen/task/task.dart';
 import 'package:task_management_mobile/widget/normal_button.dart';
 
@@ -97,7 +97,8 @@ class BuildCreateTask extends StatelessWidget {
           ),
           Container(
             height: 40,
-            child: Row(
+            child: DateTimePickerRange(),
+            /* Row(
               children: [
                 DateTimePick(color: AppColor.primaryColor),
                 Expanded(
@@ -109,7 +110,7 @@ class BuildCreateTask extends StatelessWidget {
                   color: Color(0xffF0F4F8),
                 )
               ],
-            ),
+            ), */
           ),
           SizedBox(
             height: 15,
