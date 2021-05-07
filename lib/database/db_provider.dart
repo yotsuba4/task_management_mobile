@@ -28,6 +28,29 @@ class DBProvider {
     );
   }
 
+  /* createAvatarTable() async {
+    final db = await database;
+    await db.execute('''
+      CREATE TABLE avatars (url TEXT, userID TEXT)
+    ''');
+  }
+
+  Future<List<Avatar>> getAvatarByUrl(String url) async {
+    final db = await database;
+    List<Map> maps = await db.query('avatars',
+        columns: ['url', 'userID'], where: 'url = ?', whereArgs: [url]);
+    if (maps.length > 0) {
+      return maps.map((e) => Avatar.fromMap(e)).toList();
+    }
+    return null;
+  }
+
+  Future<int> addNewAvatar(Avatar avatar) async {
+    final db = await database;
+    return await db.insert('avatars', avatar.toMap(),
+        conflictAlgorithm: ConflictAlgorithm.replace);
+  } */
+
   createPhotoTable() async {
     final db = await database;
     await db.execute('''

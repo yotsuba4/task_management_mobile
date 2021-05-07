@@ -12,6 +12,7 @@ class _BottomSheetCalendarState extends State<BottomSheetCalendar> {
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: AppColor.primaryColor,
       borderRadius: BorderRadius.circular(10),
       child: Container(
         padding: EdgeInsets.fromLTRB(32, 23, 32, 32),
