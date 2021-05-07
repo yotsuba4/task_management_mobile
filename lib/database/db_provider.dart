@@ -37,18 +37,18 @@ class DBProvider {
 
   Future<int> addNewPhoto(Photo photo) async {
     final db = await database;
-    return await db.insert('todos', photo.toMap(),
+    return await db.insert('photos', photo.toMap(),
         conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
-  Future<ToDo> getPhotoByTodoID(String todoID) async {
+  Future<List<Photo>> getPhotoByTodoID(String todoID) async {
     final db = await database;
-    List<Map> maps = await db.query('todos',
+    List<Map> maps = await db.query('photos',
         columns: ['id', 'url', 'todoID'],
         where: 'todoID = ?',
         whereArgs: [todoID]);
     if (maps.length > 0) {
-      return ToDo.fromMap(maps.first);
+      return maps.map((e) => Photo.fromMap(e)).toList();
     }
     return null;
   }
@@ -67,8 +67,8 @@ class DBProvider {
 
   Future<int> update(ToDo todo) async {
     final db = await database;
-    return await db
-        .update('todos', todo.toMap(), where: 'name = ?', whereArgs: [todo.name]);
+    return await db.update('todos', todo.toMap(),
+        where: 'name = ?', whereArgs: [todo.name]);
   }
 
   Future<ToDo> getTodo(String name) async {

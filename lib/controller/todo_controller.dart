@@ -20,9 +20,4 @@ class TodoController extends GetxController {
       ToDo.input(todonameInput.text, tododivisionInput.text),
     );
   }
-
-  void getTodoById() async {
-    todo(await DBProvider.dataBase.getTodo('td1'));
-    print(todo.value.name);
-  }
 }
