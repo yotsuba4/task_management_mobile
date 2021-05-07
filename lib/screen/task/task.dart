@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_management_mobile/controller/todo_controller.dart';
-import 'package:task_management_mobile/data/task_check_lisk.dart';
 import 'package:task_management_mobile/screen/create_task/create_task.dart';
 import 'package:task_management_mobile/screen/task/widget/build_task_checklist.dart';
 import 'package:task_management_mobile/screen/task/widget/build_task_head.dart';
@@ -29,8 +28,7 @@ class _TaskPageState extends State<TaskPage> {
               itemCount: TodoController.instance.listTodos.length,
               itemBuilder: (context, index) {
                 return BuildTaskChecklistRow(
-                    task: tasks[index],
-                    taskName: TodoController.instance.listTodos[index].name);
+                    taskName: TodoController.instance.listTodos[index]);
               },
             ),
             SizedBox(

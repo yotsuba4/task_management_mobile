@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task_management_mobile/constants/colors.dart';
-import 'package:task_management_mobile/model/task.dart';
+import 'package:task_management_mobile/model/todo.dart';
 
 class BuildTaskChecklistRow extends StatefulWidget {
-  final Task task;
-  final String taskName;
-  BuildTaskChecklistRow({@required this.task, @required this.taskName});
+  final ToDo taskName;
+  BuildTaskChecklistRow({@required this.taskName});
   static bool isChecked = false;
 
   @override
@@ -51,7 +50,7 @@ class _BuildTaskChecklistRowState extends State<BuildTaskChecklistRow> {
             ),
           ),
           Text(
-            widget.taskName,
+            widget.taskName.name,
             style: TextStyle(
               fontSize: ScreenUtil().setSp(14),
               fontWeight: FontWeight.w400,
@@ -69,12 +68,12 @@ class _BuildTaskChecklistRowState extends State<BuildTaskChecklistRow> {
             ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(6),
-              color: widget.task.tag.bColor,
+              color: widget.taskName.descriptions.bColor,
             ),
             child: Text(
-              widget.task.tag.tagName,
+              widget.taskName.descriptions.tagName,
               style: TextStyle(
-                  color: widget.task.tag.tColor,
+                  color: widget.taskName.descriptions.tColor,
                   fontSize: ScreenUtil().setSp(10),
                   fontWeight: FontWeight.w500),
             ),

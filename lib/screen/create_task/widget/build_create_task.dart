@@ -66,6 +66,7 @@ class BuildCreateTask extends StatelessWidget {
           Container(
             height: 40,
             child: TextField(
+              controller: TodoController.instance.tododivisionInput,
               decoration: InputDecoration(
                 labelText: "Brand Management",
                 border: OutlineInputBorder(

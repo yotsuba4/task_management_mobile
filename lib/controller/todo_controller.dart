@@ -8,6 +8,7 @@ class TodoController extends GetxController {
   RxList listTodos = [].obs;
   Rx<ToDo> todo;
   TextEditingController todonameInput = TextEditingController();
+  TextEditingController tododivisionInput = TextEditingController();
   void getTodos() async {
     final todos = await DBProvider.dataBase.getAllTodos();
     listTodos.assignAll(todos);
@@ -16,7 +17,7 @@ class TodoController extends GetxController {
 
   void insertTodo() {
     DBProvider.dataBase.addNewToDo(
-      ToDo(todonameInput.text, "Day la mo ta"),
+      ToDo.input(todonameInput.text, tododivisionInput.text),
     );
   }
 
