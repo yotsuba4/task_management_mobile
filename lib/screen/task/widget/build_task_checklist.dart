@@ -21,7 +21,6 @@ class _BuildTaskChecklistRowState extends State<BuildTaskChecklistRow> {
         left: ScreenUtil().setWidth(19),
         right: ScreenUtil().setWidth(19),
       ),
-      width: ScreenUtil().setWidth(296),
       height: ScreenUtil().setHeight(42),
       decoration: BoxDecoration(
         border: Border.all(
@@ -49,12 +48,19 @@ class _BuildTaskChecklistRowState extends State<BuildTaskChecklistRow> {
               },
             ),
           ),
-          Text(
-            widget.taskName.name,
-            style: TextStyle(
-              fontSize: ScreenUtil().setSp(14),
-              fontWeight: FontWeight.w400,
-              color: AppColor.grey2,
+          Expanded(
+            child: SizedBox(
+              child: Text(
+                widget.taskName.name,
+                maxLines: 1,
+                softWrap: false,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: ScreenUtil().setSp(14),
+                  fontWeight: FontWeight.w400,
+                  color: AppColor.grey2,
+                ),
+              ),
             ),
           ),
           Expanded(child: SizedBox()),
