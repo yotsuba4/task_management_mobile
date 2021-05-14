@@ -36,7 +36,17 @@ class BuildCreateTask extends StatelessWidget {
             child: TextField(
               controller: TodoController.instance.todonameInput,
               decoration: InputDecoration(
-                labelText: "UI/UX Design",
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                      color: Color(0xffD7E1EA),
+                      style: BorderStyle.solid,
+                      width: 1),
+                ),
+                // labelText: "UI/UX Design",
+                /*  labelStyle: TextStyle(
+                    fontSize: ScreenUtil().setSp(12),
+                    color: AppColor.grey5,
+                    fontWeight: FontWeight.w400), */
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(6),
                   borderSide: BorderSide(
@@ -68,7 +78,13 @@ class BuildCreateTask extends StatelessWidget {
             child: TextField(
               controller: TodoController.instance.tododivisionInput,
               decoration: InputDecoration(
-                labelText: "Brand Management",
+                //   labelText: "Brand Management",
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                      color: Color(0xffD7E1EA),
+                      style: BorderStyle.solid,
+                      width: 1),
+                ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(6),
                   borderSide: BorderSide(
